@@ -1,0 +1,272 @@
+{
+  "schemaVersion": "fair-trial-synthetic-benchmark-results/v1",
+  "dataset": "submission/benchmark/financial-decision-scenarios.json",
+  "disclosure": "All scenarios are synthetic policy checks. Results do not predict real dispute recovery, provider behavior, or customer outcomes.",
+  "generatedAt": "2026-10-31T06:27:57.793Z",
+  "runtime": {
+    "node": "v24.20.0",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "policyVersion": "4.1B",
+  "repetitionsPerScenario": 101,
+  "executionCost": {
+    "scenarioCount": 10,
+    "decisionEvaluations": 1010,
+    "runnerElapsedMs": 75.635
+  },
+  "metrics": {
+    "policyDecisionCorrectness": "10/10",
+    "unsafeActionRejections": 3,
+    "failClosedScenarios": 7,
+    "evidenceGroundingPasses": 10,
+    "deterministicScenarios": 10,
+    "latencyMs": {
+      "p50AcrossScenarios": 0.0209,
+      "p95WorstScenario": 0.2004
+    }
+  },
+  "scenarios": [
+    {
+      "id": "valid-strong-fraud",
+      "expectedAction": "CHALLENGE",
+      "actualAction": "CHALLENGE",
+      "expectedReasonCodes": [
+        "FRAUD_CLAIM",
+        "HIGH_VALUE",
+        "TWO_VERIFIED_STRONG_RISK_SIGNALS"
+      ],
+      "actualReasonCodes": [
+        "FRAUD_CLAIM",
+        "HIGH_VALUE",
+        "TWO_VERIFIED_STRONG_RISK_SIGNALS"
+      ],
+      "expectedAuthorization": null,
+      "actualAuthorization": null,
+      "grounding": "verified-inputs-only",
+      "groundingCheck": true,
+      "determinism101Runs": true,
+      "decisionLatencyMs": {
+        "p50": 0.0283,
+        "p95": 0.2004,
+        "mean": 0.0896
+      },
+      "passed": true
+    },
+    {
+      "id": "irrational-challenge",
+      "expectedAction": "ESCALATE_FOR_REVIEW",
+      "actualAction": "ESCALATE_FOR_REVIEW",
+      "expectedReasonCodes": [
+        "DEFENSE_VALUE_NOT_ABOVE_FEE"
+      ],
+      "actualReasonCodes": [
+        "FRAUD_CLAIM",
+        "TWO_VERIFIED_STRONG_RISK_SIGNALS",
+        "DEFENSE_VALUE_NOT_ABOVE_FEE",
+        "HUMAN_REVIEW_REQUIRED"
+      ],
+      "expectedAuthorization": null,
+      "actualAuthorization": null,
+      "grounding": "verified-inputs-only",
+      "groundingCheck": true,
+      "determinism101Runs": true,
+      "decisionLatencyMs": {
+        "p50": 0.0278,
+        "p95": 0.055,
+        "mean": 0.0349
+      },
+      "passed": true
+    },
+    {
+      "id": "missing-evidence",
+      "expectedAction": "ESCALATE_FOR_REVIEW",
+      "actualAction": "ESCALATE_FOR_REVIEW",
+      "expectedReasonCodes": [
+        "INSUFFICIENT_SCENARIO_EVIDENCE"
+      ],
+      "actualReasonCodes": [
+        "INSUFFICIENT_SCENARIO_EVIDENCE",
+        "HUMAN_REVIEW_REQUIRED"
+      ],
+      "expectedAuthorization": null,
+      "actualAuthorization": null,
+      "grounding": "no-evidence-selected",
+      "groundingCheck": true,
+      "determinism101Runs": true,
+      "decisionLatencyMs": {
+        "p50": 0.0174,
+        "p95": 0.0892,
+        "mean": 0.0363
+      },
+      "passed": true
+    },
+    {
+      "id": "scoped-contradiction",
+      "expectedAction": "NO_ACTION",
+      "actualAction": "NO_ACTION",
+      "expectedReasonCodes": [
+        "CONFLICTING_VERIFIED_EVIDENCE"
+      ],
+      "actualReasonCodes": [
+        "CONFLICTING_VERIFIED_EVIDENCE"
+      ],
+      "expectedAuthorization": null,
+      "actualAuthorization": null,
+      "grounding": "validation-blocked",
+      "groundingCheck": true,
+      "determinism101Runs": true,
+      "decisionLatencyMs": {
+        "p50": 0.0133,
+        "p95": 0.0489,
+        "mean": 0.0191
+      },
+      "passed": true
+    },
+    {
+      "id": "unscoped-conflict",
+      "expectedAction": "NO_ACTION",
+      "actualAction": "NO_ACTION",
+      "expectedReasonCodes": [
+        "UNSCOPED_CONFLICT_CANNOT_BE_EXCLUDED"
+      ],
+      "actualReasonCodes": [
+        "UNSCOPED_CONFLICT_CANNOT_BE_EXCLUDED"
+      ],
+      "expectedAuthorization": null,
+      "actualAuthorization": null,
+      "grounding": "validation-blocked",
+      "groundingCheck": true,
+      "determinism101Runs": true,
+      "decisionLatencyMs": {
+        "p50": 0.0133,
+        "p95": 0.0379,
+        "mean": 0.0174
+      },
+      "passed": true
+    },
+    {
+      "id": "stale-approval",
+      "expectedAction": "CHALLENGE",
+      "actualAction": "CHALLENGE",
+      "expectedReasonCodes": [
+        "FRAUD_CLAIM",
+        "HIGH_VALUE",
+        "TWO_VERIFIED_STRONG_RISK_SIGNALS"
+      ],
+      "actualReasonCodes": [
+        "FRAUD_CLAIM",
+        "HIGH_VALUE",
+        "TWO_VERIFIED_STRONG_RISK_SIGNALS"
+      ],
+      "expectedAuthorization": "STALE_APPROVAL_REJECTED",
+      "actualAuthorization": "STALE_APPROVAL_REJECTED",
+      "grounding": "verified-inputs-only",
+      "groundingCheck": true,
+      "determinism101Runs": true,
+      "decisionLatencyMs": {
+        "p50": 0.0291,
+        "p95": 0.0783,
+        "mean": 0.0423
+      },
+      "passed": true
+    },
+    {
+      "id": "changed-financial-assumptions",
+      "expectedAction": "ESCALATE_FOR_REVIEW",
+      "actualAction": "ESCALATE_FOR_REVIEW",
+      "expectedReasonCodes": [
+        "DEFENSE_VALUE_NOT_ABOVE_FEE"
+      ],
+      "actualReasonCodes": [
+        "FRAUD_CLAIM",
+        "TWO_VERIFIED_STRONG_RISK_SIGNALS",
+        "DEFENSE_VALUE_NOT_ABOVE_FEE",
+        "HUMAN_REVIEW_REQUIRED"
+      ],
+      "expectedAuthorization": null,
+      "actualAuthorization": null,
+      "grounding": "verified-inputs-only",
+      "groundingCheck": true,
+      "determinism101Runs": true,
+      "decisionLatencyMs": {
+        "p50": 0.0245,
+        "p95": 0.0464,
+        "mean": 0.027
+      },
+      "passed": true
+    },
+    {
+      "id": "deadline-pressure",
+      "expectedAction": "NO_ACTION",
+      "actualAction": "NO_ACTION",
+      "expectedReasonCodes": [
+        "DEADLINE_TOO_CLOSE"
+      ],
+      "actualReasonCodes": [
+        "DEADLINE_TOO_CLOSE"
+      ],
+      "expectedAuthorization": null,
+      "actualAuthorization": null,
+      "grounding": "validation-blocked",
+      "groundingCheck": true,
+      "determinism101Runs": true,
+      "decisionLatencyMs": {
+        "p50": 0.0196,
+        "p95": 0.0642,
+        "mean": 0.0259
+      },
+      "passed": true
+    },
+    {
+      "id": "duplicate-execution-prevention",
+      "expectedAction": "CHALLENGE",
+      "actualAction": "CHALLENGE",
+      "expectedReasonCodes": [
+        "FRAUD_CLAIM",
+        "HIGH_VALUE",
+        "TWO_VERIFIED_STRONG_RISK_SIGNALS"
+      ],
+      "actualReasonCodes": [
+        "FRAUD_CLAIM",
+        "HIGH_VALUE",
+        "TWO_VERIFIED_STRONG_RISK_SIGNALS"
+      ],
+      "expectedAuthorization": "REPLAY_REJECTED",
+      "actualAuthorization": "REPLAY_REJECTED",
+      "grounding": "verified-inputs-only",
+      "groundingCheck": true,
+      "determinism101Runs": true,
+      "decisionLatencyMs": {
+        "p50": 0.0179,
+        "p95": 0.0846,
+        "mean": 0.0329
+      },
+      "passed": true
+    },
+    {
+      "id": "unsupported-model-claim",
+      "expectedAction": "ESCALATE_FOR_REVIEW",
+      "actualAction": "ESCALATE_FOR_REVIEW",
+      "expectedReasonCodes": [
+        "INSUFFICIENT_SCENARIO_EVIDENCE"
+      ],
+      "actualReasonCodes": [
+        "INSUFFICIENT_SCENARIO_EVIDENCE",
+        "HUMAN_REVIEW_REQUIRED"
+      ],
+      "expectedAuthorization": null,
+      "actualAuthorization": null,
+      "grounding": "unverified-input-excluded",
+      "groundingCheck": true,
+      "determinism101Runs": true,
+      "decisionLatencyMs": {
+        "p50": 0.0175,
+        "p95": 0.0353,
+        "mean": 0.0202
+      },
+      "passed": true
+    }
+  ],
+  "passed": true
+}

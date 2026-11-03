@@ -1,0 +1,16 @@
+{
+  "evidence_label": "LIVE_VERIFIED",
+  "timestamp_utc": "2026-10-27T13:38:37.310Z",
+  "environment": "Airwallex US sandbox",
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/pa/payment_disputes",
+    "query": "page=0&size=1",
+    "attempts": 1
+  },
+  "http_status": 200,
+  "schema_validation": "PASS",
+  "returned_item_count": 0,
+  "error_code": null,
+  "scope": "Read-only dispute-list request; no dispute record returned."
+}

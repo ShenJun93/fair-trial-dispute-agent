@@ -1,0 +1,26 @@
+[
+  {
+    "tag": "Opening",
+    "text": "Fair Trial helps operators review payment disputes without inventing evidence or triggering risky financial actions. This demonstration separates one real Airwallex Sandbox readback from local policy reasoning and clearly labeled synthetic tests."
+  },
+  {
+    "tag": "Inspect",
+    "text": "Inspect the Visa ten point four fraud request for information, with an amount of one hundred twenty U S dollars. Airwallex returned requires response in an authorized, case-specific, read-only Sandbox request. That observation is a historical snapshot, not a live dispute status. The payment and dispute identities match, but genuine merchant order evidence, fulfillment, device history and File Service uploads have not been verified."
+  },
+  {
+    "tag": "Run",
+    "text": "Now run the bounded workflow on the saved provider-backed case. The application reads historical evidence, applies deterministic policy and returns HOLD. The missing proof blocks a challenge. No evidence upload, acceptance, refund, or provider mutation takes place. The HOLD result belongs to the application, not to Airwallex."
+  },
+  {
+    "tag": "Synthetic",
+    "text": "A separate synthetic high-value fraud case demonstrates the conditional agentic process. The local planner calls bounded tools, acquires synthetic evidence, checks the available provenance, and recomputes the deterministic recommendation. The case revision changes, and the previous certificate is invalidated. This is a synthetic demonstration, not genuine cardholder evidence and not live model inference."
+  },
+  {
+    "tag": "Explain",
+    "text": "The Explain step exposes the actual tools called, the recommendation transition, the evidence replan, and the policy reason codes. Human review remains required. A local request is not an executed financial operation, and a test recommendation is not a dispute win or an issuer decision."
+  },
+  {
+    "tag": "Closing",
+    "text": "Fair Trial demonstrates evidence-first decisions, traceable reasoning, and safe failure when proof is missing. To progress beyond this demo, the merchant would need verified original evidence, a fresh authorized provider read, and separate approval for the exact financial action. No challenge outcome is claimed."
+  }
+]

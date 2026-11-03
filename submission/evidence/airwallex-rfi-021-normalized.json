@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "label": "AIRWALLEX_SANDBOX_READ_ONLY_NORMALIZATION",
+  "mode": "LIVE_READONLY",
+  "retrievedAt": "2026-10-30T01:58:16.634Z",
+  "listOrigin": "AIRWALLEX",
+  "listedItemCount": 1,
+  "matchingDisputeCount": 1,
+  "paymentIntentFingerprint": "5739cecdeb96b009",
+  "disputeFingerprint": "a5507580bf710c5e",
+  "providerLifecycle": {
+    "paymentIntentFreshGetHttpStatus": 200,
+    "paymentIntentFreshStatus": "SUCCEEDED",
+    "duplicateDisputeListHttpStatus": 200,
+    "duplicateDisputesBeforeCreate": 0,
+    "createPostCount": 1,
+    "createHttpStatus": 201,
+    "retryCount": 0,
+    "disputeReadbackHttpStatus": 200,
+    "w3JournalRows": 1,
+    "w3JournalPhase": "READBACK_VERIFIED",
+    "w4Actions": 0
+  },
+  "normalized": {
+    "origin": "AIRWALLEX",
+    "stage": "RFI",
+    "status": "REQUIRES_RESPONSE",
+    "amountMinor": 100,
+    "currency": "USD",
+    "reasonType": "FRAUDULENT",
+    "reasonCode": "4837",
+    "evidenceAvailability": "NONE",
+    "evidenceReferenceCount": 0,
+    "actionable": false,
+    "nonActionableReasons": [
+      "EVIDENCE_MISSING"
+    ]
+  },
+  "writesDuringIngestion": 0,
+  "rawProviderIdentifiersIncluded": false,
+  "rawProviderPayloadIncluded": false
+}

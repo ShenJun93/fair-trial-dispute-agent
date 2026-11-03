@@ -1,0 +1,49 @@
+# Owner-reviewed template only. Replace every __PLACEHOLDER__ after selecting
+# an owner-controlled domain, certificate paths, and a trusted operator CIDR.
+# Include the HTTP server block in nginx's http context. Do not deploy this file
+# or expose the service until the owner separately approves W2 hosting.
+
+server {
+    listen 80;
+    server_name __OWNER_DOMAIN__;
+    if ($host != "__OWNER_DOMAIN__") { return 444; }
+    return 308 https://__OWNER_DOMAIN__:__OWNER_HTTPS_PORT__$request_uri;
+}
+
+server {
+    listen __OWNER_BIND_ADDRESS__:__OWNER_HTTPS_PORT__ ssl;
+    server_name __OWNER_DOMAIN__;
+    if ($host != "__OWNER_DOMAIN__") { return 444; }
+
+    ssl_certificate     __OWNER_TLS_CERTIFICATE_PATH__;
+    ssl_certificate_key __OWNER_TLS_PRIVATE_KEY_PATH__;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_session_tickets off;
+
+    add_header Strict-Transport-Security "max-age=31536000" always;
+    client_max_body_size 4k;
+
+    location / {
+        allow __OWNER_OPERATOR_CIDR__;
+        deny all;
+
+        proxy_pass http://127.0.0.1:4242;
+        proxy_http_version 1.1;
+        # Preserve explicit non-default ports so the app can exact-match Origin/Host.
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header Connection "";
+        proxy_buffering off;
+        proxy_connect_timeout 5s;
+        proxy_send_timeout 10s;
+        # Backend auth and API fetches each abort at 30s; the handoff can perform
+        # them sequentially before its first response, so allow 60s + 10s headroom.
+        proxy_read_timeout 70s;
+        # Preserve backend status bodies and never replay a request on upstream error.
+        proxy_intercept_errors off;
+        proxy_next_upstream off;
+    }
+}

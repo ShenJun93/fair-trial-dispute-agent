@@ -1,0 +1,29 @@
+{
+  "name": "fair-trial",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Fair Trial: offline, evidence-first dispute decision-support judge prototype",
+  "type": "module",
+  "engines": {
+    "node": ">=22.5"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "demo": "npm run demo:ft032 && npm run demo:ft032:voi",
+    "test:hpp": "node --disable-warning=ExperimentalWarning --import tsx --test scripts/hpp.test.ts scripts/hpp-proxy.test.ts scripts/hpp-recovery.test.ts scripts/w1-safe-path.test.ts scripts/w1-hpp-integration.test.ts",
+    "test": "npm run test:disputes && npm run test:hpp",
+    "test:disputes": "node --disable-warning=ExperimentalWarning --import tsx --test scripts/dispute-agent.test.ts scripts/dispute-engine.test.ts scripts/dispute-planning.test.ts scripts/dispute-workflow.test.ts scripts/dispute-read-adapter.test.ts scripts/dispute-evidence.test.ts scripts/dispute-interactive.test.ts scripts/evidence-proposals.test.ts scripts/evidence-span-anchor.test.ts scripts/evidence-contract-v2.test.ts scripts/g2-evidence-integrity.test.ts scripts/decision-certificate.test.ts scripts/decision-proof.test.ts scripts/w4-preflight.test.ts scripts/w3-rfi-case.test.ts scripts/w3-rfi-auth-diagnostics.test.ts scripts/provider-case-review.test.ts scripts/historical-provider-portfolio.test.ts scripts/visa104-safe-contract.test.ts scripts/ft056-rehearsal.test.ts scripts/ft057-sandbox-boundary.test.ts scripts/ft058-private-gate.test.ts scripts/ft059-policy.test.ts scripts/ft059-recovery.test.ts scripts/ft062-anchor-contract.test.ts scripts/ft062-duplicate-recovery.test.ts scripts/ft063-citation-adversarial.test.ts scripts/ft067-judge-brief.test.ts scripts/ft068-judge-flow.test.ts",
+    "demo:ft032": "node --disable-warning=ExperimentalWarning --import tsx scripts/ft032-demo-sequence.ts",
+    "demo:ft032:voi": "node --disable-warning=ExperimentalWarning --import tsx scripts/ft032-voi-demo.ts",
+    "dispute:review": "node scripts/judge-only-server.mjs"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "pdf-lib": "^1.17.1"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "caseKey": "airwallex-rfi-021",
+  "sourceOfTruth": "submission/evidence/airwallex-rfi-021-normalized.json",
+  "items": [
+    {
+      "id": "provider-payment-status",
+      "classification": "VERIFIED",
+      "category": "payment status",
+      "finding": "PaymentIntent status SUCCEEDED.",
+      "source": "submission/evidence/airwallex-rfi-021-normalized.json#/providerLifecycle",
+      "implication": "Confirms payment state only; does not establish cardholder authorization."
+    },
+    {
+      "id": "provider-dispute-state",
+      "classification": "VERIFIED",
+      "category": "dispute state",
+      "finding": "Airwallex origin; RFI / REQUIRES_RESPONSE; USD 1.00; Mastercard reason code 4837.",
+      "source": "submission/evidence/airwallex-rfi-021-normalized.json#/normalized",
+      "implication": "Provider-backed case facts from sanitized read-only normalization."
+    },
+    {
+      "id": "provider-evidence-references",
+      "classification": "VERIFIED",
+      "category": "provider evidence references",
+      "finding": "Evidence availability NONE; 0 references; non-actionable reason EVIDENCE_MISSING.",
+      "source": "submission/evidence/airwallex-rfi-021-normalized.json#/normalized",
+      "implication": "No dispute supporting documents were ingested."
+    },
+    {
+      "id": "response-deadline",
+      "classification": "MISSING",
+      "category": "deadline",
+      "finding": "No response deadline is present in the sanitized normalized receipt.",
+      "source": "submission/evidence/airwallex-rfi-021-normalized.json#/normalized",
+      "implication": "Do not infer a deadline from the W3 creation request; obtain a fresh provider read before any future action."
+    },
+    {
+      "id": "cardholder-authentication",
+      "classification": "MISSING",
+      "category": "cardholder authorization",
+      "finding": "No 3DS/authentication result, issuer authorization evidence, or identity match record is present.",
+      "source": "No source record in the normalized receipt; evidenceReferenceCount=0",
+      "implication": "Required gap for a 4837 response; payment success alone is not proof of authorization."
+    },
+    {
+      "id": "purchase-history",
+      "classification": "MISSING",
+      "category": "customer history",
+      "finding": "No linked prior undisputed purchases or customer footprint records are present.",
+      "source": "No source record in the normalized receipt; evidenceReferenceCount=0",
+      "implication": "Cannot claim a history or apply a compelling-evidence pathway."
+    },
+    {
+      "id": "customer-communications",
+      "classification": "MISSING",
+      "category": "customer communication",
+      "finding": "No customer correspondence, consent, withdrawal, or support records are present.",
+      "source": "No source record in the normalized receipt; evidenceReferenceCount=0",
+      "implication": "Do not assert consent, contact, or dispute withdrawal."
+    },
+    {
+      "id": "transaction-and-fulfillment",
+      "classification": "MISSING",
+      "category": "transaction / fulfillment",
+      "finding": "No order, product, delivery, digital access, service, or booking records are present.",
+      "source": "No source record in the normalized receipt; evidenceReferenceCount=0",
+      "implication": "Transaction context and fulfillment cannot be claimed."
+    },
+    {
+      "id": "offline-fixtures",
+      "classification": "SYNTHETIC",
+      "category": "offline demo examples",
+      "finding": "Other OFFLINE_FIXTURE examples exist in the repository but are not linked to this Airwallex dispute.",
+      "source": "spike/dispute-workflow.ts and offline fixture tests",
+      "implication": "Keep separate; never attach or describe as this customer's evidence."
+    },
+    {
+      "id": "authorization-inference",
+      "classification": "UNSUPPORTED",
+      "category": "unsupported inference",
+      "finding": "‘PaymentIntent SUCCEEDED proves the cardholder authorized the purchase.’",
+      "source": "No supporting record; contradicted by the distinction in Mastercard reason 4837",
+      "implication": "Reject this inference; success proves payment status, not the disputed cardholder identity/authorization."
+    }
+  ]
+}

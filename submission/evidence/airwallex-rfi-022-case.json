@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "caseKey": "airwallex-rfi-021",
+  "labels": [
+    "REAL_PROVIDER_BACKED_CASE",
+    "AIRWALLEX_SANDBOX",
+    "SYNTHETIC_USD_1_TRANSACTION",
+    "READ_ONLY_INGESTION"
+  ],
+  "providerProvenance": {
+    "origin": "AIRWALLEX",
+    "environment": "SANDBOX",
+    "ingestionMode": "LIVE_READONLY",
+    "sourceReceipt": "submission/evidence/airwallex-rfi-021-normalized.json",
+    "observedAt": "2026-10-30T01:58:16.634Z",
+    "paymentIntentFingerprint": "5739cecdeb96b009",
+    "disputeFingerprint": "a5507580bf710c5e",
+    "rawProviderIdentifiersIncluded": false,
+    "rawProviderPayloadIncluded": false
+  },
+  "payment": {
+    "status": "SUCCEEDED",
+    "amountMinor": 100,
+    "currency": "USD",
+    "meaning": "Payment completed; this alone does not prove cardholder authorization."
+  },
+  "dispute": {
+    "stage": "RFI",
+    "status": "REQUIRES_RESPONSE",
+    "reasonType": "FRAUDULENT",
+    "reasonCode": "4837",
+    "reasonDescription": "Mastercard 4837 — No cardholder authorization",
+    "responseDeadline": null,
+    "responseDeadlineClassification": "MISSING_FROM_SANITIZED_RECEIPT",
+    "evidenceAvailability": "NONE",
+    "evidenceReferenceCount": 0,
+    "actionable": false
+  },
+  "provenance": {
+    "freshPaymentIntentGetHttpStatus": 200,
+    "disputeListHttpStatus": 200,
+    "disputeCreateHttpStatus": 201,
+    "disputeReadbackHttpStatus": 200,
+    "ingestionWrites": 0,
+    "w4Actions": 0
+  }
+}

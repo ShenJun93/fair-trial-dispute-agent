@@ -1,0 +1,94 @@
+{
+  "schema": "FT050A_VISA_FRAUD_RFI_SANDBOX_PROOF_V1",
+  "origin": "OWNER_EXECUTED_FT048_FT049_ONESHOTS",
+  "environment": "AIRWALLEX_SANDBOX_ONLY",
+  "caseNature": "SYNTHETIC_SANDBOX_SIMULATION",
+  "payment": {
+    "fingerprint16": "8c3e0301a4510c2d",
+    "orderFingerprint16": "3101e7fecf016366",
+    "status": "SUCCEEDED",
+    "amountMajor": 120,
+    "currency": "USD",
+    "cardBrand": "VISA",
+    "testCardLast4": "0008",
+    "observedUtc": "2026-11-02T05:38:37.0370036+00:00"
+  },
+  "dispute": {
+    "fingerprint16": "89fa24ab5b2cae89",
+    "paymentFingerprint16": "8c3e0301a4510c2d",
+    "orderFingerprint16": "3101e7fecf016366",
+    "status": "REQUIRES_RESPONSE",
+    "stage": "RFI",
+    "providerReasonCode": "10.4",
+    "providerReasonType": "FRAUDULENT",
+    "amountMajor": 120,
+    "currency": "USD",
+    "observedUtc": "2026-11-02T05:55:14.3112038+00:00",
+    "dueAtUtc": "2026-11-09T05:55:12.0000000Z"
+  },
+  "operations": {
+    "payment": [
+      {
+        "phase": "loginPOST",
+        "http": 201
+      },
+      {
+        "phase": "createPOST",
+        "http": 201
+      },
+      {
+        "phase": "confirmPOST",
+        "http": 200
+      },
+      {
+        "phase": "readbackGET",
+        "http": 200
+      }
+    ],
+    "dispute": [
+      {
+        "phase": "loginPOST",
+        "http": 201
+      },
+      {
+        "phase": "paymentPreGET",
+        "http": 200
+      },
+      {
+        "phase": "disputeCreatePOST",
+        "http": 201
+      },
+      {
+        "phase": "disputeDetailGET",
+        "http": 200
+      }
+    ]
+  },
+  "attempts": {
+    "paymentRetries": 0,
+    "disputeRetries": 0,
+    "disputeCreates": 1,
+    "evidenceUploads": 0,
+    "challengePOST": 0,
+    "acceptPOST": 0,
+    "issuerEscalationPOST": 0,
+    "refundPOST": 0
+  },
+  "provenance": {
+    "paymentPrivateReceiptSha256": "04ddf1822ed0e8315e3c9475c935d6b979e986a3d7f44a331fdb811ecc261e53",
+    "disputePrivateReceiptSha256": "a7e4dcd8a2fbe861bac7ca55b6c326952ff5afc33fc462afa241d31a163e4857",
+    "privateDPAPIIdsOutsideSource": true
+  },
+  "restrictions": {
+    "agentExecutedProviderActions": false,
+    "merchantDeliveryEvidenceEstablished": false,
+    "priorVisaUndisputedOrdersEstablished": false,
+    "airwallexFileServiceUploaded": false,
+    "issuerRejectionObserved": false,
+    "visaCE3EligibilityEstablished": false,
+    "genuineCardholderClaim": false,
+    "refundSettlementProven": false,
+    "rawIdsOrSecretsIncluded": false
+  },
+  "releaseApproved": false
+}

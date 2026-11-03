@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 2,
+  "label": "PROVIDER_EXECUTED_SANDBOX_SIMULATION_READONLY_SNAPSHOT",
+  "caseClassification": "PROVIDER_EXECUTED_SANDBOX_SIMULATION",
+  "mode": "LIVE_READONLY_ATTEMPT_BLOCKED",
+  "environment": "AIRWALLEX_SANDBOX",
+  "readStatus": "BLOCKED",
+  "retrievedAt": null,
+  "attemptedAt": null,
+  "lastVerifiedAt": "2026-10-30T01:58:16.634Z",
+  "blocker": "AUTHENTICATION_STEP_FAILED_BEFORE_DISPUTE_GET; HTTP status and diagnostic category were not preserved by the runner output. No retry or alternate network path was attempted.",
+  "identity": {
+    "paymentIntentFingerprint": "5739cecdeb96b009",
+    "disputeFingerprint": "a5507580bf710c5e",
+    "paymentIntentLinked": true,
+    "exactHistoricalIdentityMatch": true
+  },
+  "providerDispute": {
+    "stage": "RFI",
+    "status": "REQUIRES_RESPONSE",
+    "amountMinor": 100,
+    "currency": "USD",
+    "reasonType": "FRAUDULENT",
+    "reasonCode": "4837",
+    "dueAt": null,
+    "dueAtClassification": "NOT_REFRESHED_AUTHENTICATION_BLOCKED",
+    "dueAtTimezoneExplicit": false,
+    "dueAtParses": false,
+    "createdAt": null,
+    "updatedAt": null,
+    "cardBrand": null,
+    "paymentMethodType": null,
+    "disputeMode": null,
+    "evidenceAvailability": "NONE",
+    "evidenceReferenceCount": 0,
+    "evidenceDocumentsSanitized": true
+  },
+  "provenance": {
+    "endpoint": "GET /api/v1/pa/payment_disputes/{id}",
+    "httpStatus": null,
+    "getCount": 0,
+    "mutationCount": 0,
+    "authenticationRequestStarted": true,
+    "rawProviderIdentifiersIncluded": false,
+    "rawProviderPayloadIncluded": false,
+    "sourceJournal": "out/w3-rfi-journal.sqlite (read-only; excluded from package)",
+    "sourceReceipt": "submission/evidence/airwallex-rfi-021-normalized.json"
+  }
+}

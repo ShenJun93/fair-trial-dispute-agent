@@ -1,0 +1,19 @@
+{
+  "proposals": [
+    {
+      "caseId": "kit04-evidence-lab",
+      "documentId": "para-1",
+      "documentSha256": "2427980cd9239162d2d9ee6e",
+      "factType": "DEVICE_AND_3DS_MATCH",
+      "exactQuote": "The challenge step completed successfully, and this handset fingerprint matches the device enrolled to the account.",
+      "startOffset": 58,
+      "endOffset": 124,
+      "confidence": 0.99,
+      "sourceType": "OFFLINE_OPERATOR_TEXT",
+      "proposedAt": "2026-10-28T08:00:00.000Z",
+      "model": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+      "promptVersion": "evidence-fact-extraction-v1",
+      "proposalVersion": "1.0"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+# Raw receipt byte identity is part of the security contract. Never normalize line endings.
+submission/evidence/ft044a-sandbox-dispute-accepted.json -text
+submission/evidence/ft050a-visa-rfi-sandbox-proof.json -text

@@ -1,0 +1,15 @@
+.env*
+!.env.example
+node_modules/
+out/
+*.log
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+submission/video/*backup*.mp4
+submission/video/fair-trial-demo.mp4
+submission/video/fair-trial-demo-captioned.mp4
+submission/video/captures/
+submission/video/fair-trial-demo-final.mp4
+/.hallmark/

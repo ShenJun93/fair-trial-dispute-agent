@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 2,
+  "caseKey": "airwallex-rfi-021",
+  "items": [
+    {
+      "id": "provider-payment-status",
+      "classification": "VERIFIED",
+      "finding": "Historical PaymentIntent status SUCCEEDED, USD 1.00.",
+      "source": "submission/evidence/airwallex-rfi-021-normalized.json#/providerLifecycle",
+      "limitation": "Payment success does not prove cardholder authorization."
+    },
+    {
+      "id": "provider-dispute-state",
+      "classification": "VERIFIED",
+      "finding": "Provider dispute RFI / REQUIRES_RESPONSE, USD 1.00, reason code 4837.",
+      "source": "submission/evidence/airwallex-rfi-021-normalized.json#/normalized",
+      "limitation": "Last-known state only; new provider detail GET was blocked before retrieval."
+    },
+    {
+      "id": "response-deadline",
+      "classification": "MISSING",
+      "finding": "No fresh provider deadline is available.",
+      "source": "Fresh dispute GET did not complete",
+      "limitation": "Deadline remains unknown; action must fail closed."
+    },
+    {
+      "id": "provider-evidence-references",
+      "classification": "VERIFIED",
+      "finding": "Provider evidence reference count: 0.",
+      "source": "submission/evidence/airwallex-rfi-021-normalized.json#/normalized",
+      "limitation": "No provider evidence documents were present."
+    },
+    {
+      "id": "cardholder-authorization",
+      "classification": "MISSING",
+      "finding": "No source-linked cardholder authorization or authentication evidence is available in the sanitized case.",
+      "source": "No provider evidence references or merchant records supplied",
+      "limitation": "Do not infer from SUCCEEDED."
+    },
+    {
+      "id": "customer-history",
+      "classification": "MISSING",
+      "finding": "No linked prior purchase history or customer footprint evidence is available.",
+      "source": "No provider evidence references or merchant records supplied",
+      "limitation": "Do not claim compelling evidence."
+    },
+    {
+      "id": "customer-communication",
+      "classification": "MISSING",
+      "finding": "No consent, customer communication, or dispute-withdrawal record is available.",
+      "source": "No provider evidence references or merchant records supplied",
+      "limitation": "Do not invent communications or consent."
+    },
+    {
+      "id": "transaction-fulfillment",
+      "classification": "MISSING",
+      "finding": "No order, transaction description, delivery, access, service, or booking evidence is available.",
+      "source": "No provider evidence references or merchant records supplied",
+      "limitation": "Do not claim fulfillment."
+    },
+    {
+      "id": "offline-fixtures",
+      "classification": "SYNTHETIC",
+      "finding": "Repository offline examples are separate from this provider-backed case.",
+      "source": "spike/dispute-workflow.ts and tests",
+      "limitation": "Never attach as customer evidence."
+    },
+    {
+      "id": "authorization-inference",
+      "classification": "UNSUPPORTED",
+      "finding": "Payment success proves cardholder authorization.",
+      "source": "No supporting source record",
+      "limitation": "Reject the inference."
+    }
+  ]
+}

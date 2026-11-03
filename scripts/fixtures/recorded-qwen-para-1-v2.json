@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "fair-trial-recorded-qwen-response/v1",
+  "evidenceLabel": "RECORDED_REPLAY",
+  "model": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+  "runtime": "Existing local CPU llama.cpp; historical owner-authorized run",
+  "caseId": "para-1",
+  "sourceText": "Synthetic record 1.\nThe challenge step completed successfully, and this handset fingerprint matches the device enrolled to the account.",
+  "compactResponse": {
+    "proposals": [
+      {
+        "factType": "DEVICE_AND_3DS_MATCH",
+        "exactQuote": "The challenge step completed successfully, and this handset fingerprint matches the device enrolled to the account."
+      }
+    ]
+  },
+  "source": "Sanitized compact response and synthetic source excerpt copied from the reviewed 2026-10-29 50-case receipt for offline replay rehearsal. This is not live inference."
+}

@@ -1,0 +1,133 @@
+{
+  "policy": "evaluateW4Preflight",
+  "policyVersion": "repository-source",
+  "decision": "HOLD · REQUEST_EVIDENCE · HUMAN_REVIEW",
+  "reasons": [
+    "CASE_IDENTITY_INCOMPLETE_OR_INVALID",
+    "FRESH_PROVIDER_IDENTITY_READ_REQUIRED",
+    "VERIFIED_CARDHOLDER_AUTHORIZATION_EVIDENCE_REQUIRED",
+    "VERIFIED_TRANSACTION_DETAILS_REQUIRED",
+    "QUALIFYING_CUSTOMER_HISTORY_REQUIRED_FOR_4837",
+    "UNSUPPORTED_EVIDENCE_CLAIM_PRESENT",
+    "ACTION_SPECIFIC_OWNER_APPROVAL_REQUIRED"
+  ],
+  "reasonSupport": [
+    {
+      "code": "CASE_IDENTITY_INCOMPLETE_OR_INVALID",
+      "explanation": "The response deadline is absent, so the case identity is incomplete.",
+      "source": "airwallex-rfi-023-case.json#/dispute/responseDeadline"
+    },
+    {
+      "code": "FRESH_PROVIDER_IDENTITY_READ_REQUIRED",
+      "explanation": "No fresh provider detail read is available; the latest refresh stopped before GET.",
+      "source": "airwallex-rfi-023-provider-snapshot.json#/provenance"
+    },
+    {
+      "code": "VERIFIED_CARDHOLDER_AUTHORIZATION_EVIDENCE_REQUIRED",
+      "explanation": "No verified cardholder authorization or authentication record is present.",
+      "source": "airwallex-rfi-023-evidence-matrix.json#/items/cardholder-authorization"
+    },
+    {
+      "code": "VERIFIED_TRANSACTION_DETAILS_REQUIRED",
+      "explanation": "No admissible order-level transaction detail is present; payment success alone does not satisfy this requirement.",
+      "source": "airwallex-rfi-023-evidence-matrix.json#/items/transaction-fulfillment"
+    },
+    {
+      "code": "QUALIFYING_CUSTOMER_HISTORY_REQUIRED_FOR_4837",
+      "explanation": "No verified qualifying prior-purchase history is available for reason code 4837.",
+      "source": "airwallex-rfi-023-evidence-matrix.json#/items/customer-history"
+    },
+    {
+      "code": "UNSUPPORTED_EVIDENCE_CLAIM_PRESENT",
+      "explanation": "The assertion that payment success proves authorization has no supporting source and is rejected.",
+      "source": "airwallex-rfi-023-evidence-matrix.json#/items/authorization-inference"
+    },
+    {
+      "code": "ACTION_SPECIFIC_OWNER_APPROVAL_REQUIRED",
+      "explanation": "No action-specific W4 owner approval exists.",
+      "source": "W4 authorization state: NOT AUTHORIZED"
+    }
+  ],
+  "evidence": [
+    {
+      "classification": "VERIFIED",
+      "category": "TRANSACTION_DETAILS",
+      "source": "submission/evidence/airwallex-rfi-021-normalized.json#/providerLifecycle",
+      "supportsResponse": false
+    },
+    {
+      "classification": "VERIFIED",
+      "category": "OTHER",
+      "source": "submission/evidence/airwallex-rfi-021-normalized.json#/normalized",
+      "supportsResponse": false
+    },
+    {
+      "classification": "MISSING",
+      "category": "OTHER",
+      "source": "Fresh dispute GET did not complete",
+      "supportsResponse": false
+    },
+    {
+      "classification": "VERIFIED",
+      "category": "OTHER",
+      "source": "submission/evidence/airwallex-rfi-021-normalized.json#/normalized",
+      "supportsResponse": false
+    },
+    {
+      "classification": "MISSING",
+      "category": "CARDHOLDER_AUTHORIZATION",
+      "source": "No provider evidence references or merchant records supplied",
+      "supportsResponse": false
+    },
+    {
+      "classification": "MISSING",
+      "category": "CUSTOMER_HISTORY",
+      "source": "No provider evidence references or merchant records supplied",
+      "supportsResponse": false
+    },
+    {
+      "classification": "MISSING",
+      "category": "CUSTOMER_COMMUNICATION",
+      "source": "No provider evidence references or merchant records supplied",
+      "supportsResponse": false
+    },
+    {
+      "classification": "MISSING",
+      "category": "FULFILLMENT",
+      "source": "No provider evidence references or merchant records supplied",
+      "supportsResponse": false
+    },
+    {
+      "classification": "SYNTHETIC",
+      "category": "OTHER",
+      "source": "spike/dispute-workflow.ts and tests",
+      "supportsResponse": false
+    },
+    {
+      "classification": "UNSUPPORTED",
+      "category": "OTHER",
+      "source": "No supporting source record",
+      "supportsResponse": true
+    }
+  ],
+  "providerAction": "NOT_EXECUTED",
+  "provenance": [
+    {
+      "source": "airwallex-rfi-021-normalized.json",
+      "sha256": "2be95e65e375f5fbd46bda027afcc5b2d53bf3208935ded903fca2c491251f8e"
+    },
+    {
+      "source": "airwallex-rfi-023-provider-snapshot.json",
+      "sha256": "fc71edc5912f4e06d67b9667539af72484cc58720752b99090eb84d862457c4a"
+    },
+    {
+      "source": "airwallex-rfi-023-case.json",
+      "sha256": "a4cd9feca2859ccdce4283d6bc6d6065d5a6f42ec2ccd009a008872a1f5cb5f6"
+    },
+    {
+      "source": "airwallex-rfi-023-evidence-matrix.json",
+      "sha256": "cad40a56ff6f575204e609350fdee1ce67da3c743f85389704bf5dc7672883e0"
+    }
+  ],
+  "deterministicClock": "2026-10-30T01:58:16.634Z"
+}

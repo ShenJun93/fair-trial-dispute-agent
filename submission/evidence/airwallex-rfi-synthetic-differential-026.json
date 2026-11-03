@@ -1,0 +1,46 @@
+{
+  "label": "OFFLINE_SYNTHETIC_DIFFERENTIAL_ONLY",
+  "isolatedFromProviderCase": true,
+  "syntheticRecords": [
+    {
+      "classification": "SYNTHETIC",
+      "category": "CARDHOLDER_AUTHORIZATION",
+      "source": "offline-fixture:synthetic-cardholder_authorization"
+    },
+    {
+      "classification": "SYNTHETIC",
+      "category": "TRANSACTION_DETAILS",
+      "source": "offline-fixture:synthetic-transaction_details"
+    },
+    {
+      "classification": "SYNTHETIC",
+      "category": "CUSTOMER_HISTORY",
+      "source": "offline-fixture:synthetic-customer_history"
+    }
+  ],
+  "baselineReasons": [
+    "CASE_IDENTITY_INCOMPLETE_OR_INVALID",
+    "FRESH_PROVIDER_IDENTITY_READ_REQUIRED",
+    "VERIFIED_CARDHOLDER_AUTHORIZATION_EVIDENCE_REQUIRED",
+    "VERIFIED_TRANSACTION_DETAILS_REQUIRED",
+    "QUALIFYING_CUSTOMER_HISTORY_REQUIRED_FOR_4837",
+    "UNSUPPORTED_EVIDENCE_CLAIM_PRESENT",
+    "ACTION_SPECIFIC_OWNER_APPROVAL_REQUIRED"
+  ],
+  "reasonsWithSyntheticRecords": [
+    "CASE_IDENTITY_INCOMPLETE_OR_INVALID",
+    "FRESH_PROVIDER_IDENTITY_READ_REQUIRED",
+    "VERIFIED_CARDHOLDER_AUTHORIZATION_EVIDENCE_REQUIRED",
+    "VERIFIED_TRANSACTION_DETAILS_REQUIRED",
+    "QUALIFYING_CUSTOMER_HISTORY_REQUIRED_FOR_4837",
+    "SYNTHETIC_EVIDENCE_NOT_ADMISSIBLE",
+    "UNSUPPORTED_EVIDENCE_CLAIM_PRESENT",
+    "ACTION_SPECIFIC_OWNER_APPROVAL_REQUIRED"
+  ],
+  "newlyAddedReasons": [
+    "SYNTHETIC_EVIDENCE_NOT_ADMISSIBLE"
+  ],
+  "removedReasons": [],
+  "providerAction": "NOT_EXECUTED",
+  "note": "Synthetic inputs remain isolated and inadmissible; they cannot change the real provider-backed case or execute a provider action."
+}

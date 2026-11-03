@@ -1,0 +1,62 @@
+{
+  "schema": "FT044A_PROVIDER_ACCEPT_READBACK_V1",
+  "origin": "OWNER_APPROVED_ONE_SHOT_AIRWALLEX_SANDBOX_FT043B",
+  "receiptSha256": "d0ad40ffe2227d7bf66082492f33c1d01b789d991b40a097755e16edac2b04f5",
+  "verifiedUtc": "2026-11-02T04:25:00.9730632+00:00",
+  "environment": "SANDBOX_ONLY",
+  "paymentFingerprint16": "6da9ac8e877f4f04",
+  "disputeFingerprint16": "31bf007e3777f1a3",
+  "cardBrand": "MASTERCARD",
+  "amountMajor": 1.0,
+  "currency": "USD",
+  "reasonType": "CONSUMER_DISPUTE",
+  "reasonCode": "4853",
+  "stage": "CHARGEBACK",
+  "acceptReason": "LOW_VALUE_TRANSACTION",
+  "priorStatus": "REQUIRES_RESPONSE",
+  "providerAcceptResponseStatus": "ACCEPTED",
+  "providerGetReadbackStatus": "ACCEPTED",
+  "operations": [
+    {
+      "operation": "loginPOST",
+      "method": "POST",
+      "http": 201,
+      "responseUtf8Bytes": 1644
+    },
+    {
+      "operation": "preGET",
+      "method": "GET",
+      "http": 200,
+      "responseUtf8Bytes": 803
+    },
+    {
+      "operation": "acceptPOST",
+      "method": "POST",
+      "http": 200,
+      "responseUtf8Bytes": 1014
+    },
+    {
+      "operation": "postGET",
+      "method": "GET",
+      "http": 200,
+      "responseUtf8Bytes": 1014
+    }
+  ],
+  "attempts": {
+    "loginPOST": 1,
+    "preGET": 1,
+    "acceptPOST": 1,
+    "postGET": 1,
+    "retries": 0,
+    "refunds": 0,
+    "challenges": 0,
+    "uploads": 0
+  },
+  "refundPostExecuted": false,
+  "refundSettlementVerified": false,
+  "issuerRejectionObserved": false,
+  "realCardholderClaim": false,
+  "automatedAgentMadeDecision": false,
+  "rawIdsOrCredentialsIncluded": false,
+  "published": false
+}
