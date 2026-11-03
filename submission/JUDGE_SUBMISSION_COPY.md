@@ -16,8 +16,8 @@
 
 **Limitations.** Saved Sandbox observations are not realtime provider data. Synthetic case evidence is not real merchant/cardholder evidence. No dispute challenge, acceptance, refund, evidence upload, issuer decision or actual recovery has been performed. Financial policy recommendations are **not** autonomous provider actions.
 
-**Video URL:** add only after approved hosting and unauthenticated playback test.
+**Video URL:** https://youtu.be/m1CF5ci8Rk4 (YouTube, 3:16; verified public metadata 2026-11-03)
 
-**Repository URL:** add only after source privacy/rights approval and judge-access validation.
+**Repository URL:** https://github.com/ShenJun93/fair-trial-dispute-agent (public)
 
 **Submission:** must be confirmed within the actual entrant HackerEarth account; this text is not proof of submission.

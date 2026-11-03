@@ -4,6 +4,8 @@
 
 Fair Trial is a reproducible **offline dispute-decision prototype**. It inspects a historically verified Airwallex Sandbox dispute snapshot, checks evidence provenance, runs a bounded tool workflow and applies conservative financial policy. When original merchant evidence is missing, it recommends **HOLD / REQUEST_EVIDENCE / HUMAN_REVIEW** rather than fabricating a chargeback challenge.
 
+**[Watch the 3:16 Judge Demo on YouTube](https://youtu.be/m1CF5ci8Rk4)**. The video shows a historical Sandbox case HOLD and three separately labeled synthetic local recommendations; no financial action was executed. [Video backup on GitHub Releases](https://github.com/ShenJun93/fair-trial-dispute-agent/releases/tag/v1.0-judge-demo).
+
 ## Run it
 
 Requirements: Node.js >=22.5 and npm. Windows PowerShell is used for the interactive Judge Demo. No Airwallex credentials, provider actions, cloud LLM or live dispute access are required.
